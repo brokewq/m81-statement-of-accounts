@@ -13,21 +13,21 @@
   --bg:#f6f5f2; --card:#ffffff; --ink:#1a1a1a; --ink-2:#55565c; --ink-3:#8a8b91;
   --line:#e6e4df; --line-2:#efede8; --soft:#f1efea;
   --c-dash:#3563d4; --c-task:#138a7d; --c-wa:#c98a12; --c-biz:#7d4fc9;
-  --owed:#b23a2e; --owed-bg:#fbeeec; --pos:#1d7a45;
+  --owed:#b23a2e; --owed-bg:#fbeeec; --pos:#1d7a45; --task-bg:#e5f3f1;
 }
 @media (prefers-color-scheme:dark){
   :root:not([data-theme="light"]){
     --bg:#141416; --card:#1c1c1f; --ink:#ececee; --ink-2:#a9aab0; --ink-3:#74757c;
     --line:#2c2c31; --line-2:#252529; --soft:#232327;
     --c-dash:#6b93ef; --c-task:#3cbcac; --c-wa:#e3aa3d; --c-biz:#a582e6;
-    --owed:#f07a6c; --owed-bg:#2e1c1a; --pos:#58c486;
+    --owed:#f07a6c; --owed-bg:#2e1c1a; --pos:#58c486; --task-bg:#15302c;
   }
 }
 :root[data-theme="dark"]{
   --bg:#141416; --card:#1c1c1f; --ink:#ececee; --ink-2:#a9aab0; --ink-3:#74757c;
   --line:#2c2c31; --line-2:#252529; --soft:#232327;
   --c-dash:#6b93ef; --c-task:#3cbcac; --c-wa:#e3aa3d; --c-biz:#a582e6;
-  --owed:#f07a6c; --owed-bg:#2e1c1a; --pos:#58c486;
+  --owed:#f07a6c; --owed-bg:#2e1c1a; --pos:#58c486; --task-bg:#15302c;
 }
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
@@ -101,6 +101,9 @@ table.t tfoot td{border-bottom:none;border-top:1px solid var(--line);font-weight
 .notes li b{color:var(--ink);font-weight:600}
 .notes li::before{content:"";position:absolute;left:4px;top:18px;width:8px;height:8px;border-radius:50%;background:var(--line);box-shadow:0 0 0 3px var(--soft)}
 
+.callout{margin:0 0 14px;padding:11px 14px;border-radius:10px;background:var(--task-bg);border-left:3px solid var(--c-task);font-size:13.5px;color:var(--ink)}
+.callout b{font-weight:600}
+table.t td:first-child{white-space:nowrap}
 .brand-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
 .dl{font-size:13px;font-weight:600;color:var(--c-dash);text-decoration:none;border:1px solid var(--line);border-radius:8px;padding:5px 11px;white-space:nowrap}
 .dl:hover{background:var(--soft)}
@@ -173,7 +176,7 @@ footer{margin-top:28px;font-size:12.5px;color:var(--ink-3);display:flex;justify-
 
       <tr class="grp"><td colspan="2">Paid out to workers</td></tr>
       <tr><td><span class="dot" style="background:var(--c-dash)"></span>Dashboard payouts <span class="muted">(50)</span></td><td class="num">₹36,150</td></tr>
-      <tr><td><span class="dot" style="background:var(--c-task)"></span>Direct UPI, Product Hunt tasks <span class="muted">(19)</span></td><td class="num">₹4,000</td></tr>
+      <tr><td><span class="dot" style="background:var(--c-task)"></span>Direct UPI, Product Hunt tasks <span class="muted">(20 tasks)</span></td><td class="num">₹4,000</td></tr>
       <tr><td><span class="dot" style="background:var(--c-wa)"></span>WhatsApp payouts <span class="muted">(4)</span></td><td class="num">₹1,140</td></tr>
       <tr class="tot"><td>Total</td><td class="num">₹41,290</td></tr>
 
@@ -283,10 +286,11 @@ footer{margin-top:28px;font-size:12.5px;color:var(--ink-3);display:flex;justify-
   <div class="card">
     <div class="ledger"><h2><span class="dot" style="background:var(--c-task)"></span>Product Hunt tasks · paid directly</h2></div>
     <p style="margin:-4px 0 12px;font-size:13px" class="muted">Product Hunt tasks, paid at ₹200 each. Workers at the payout-request stage had it added to their dashboard payout instead (Rishabh, arunn).</p>
+    <div class="callout"><b>Why ₹4,000 and not ₹3,800:</b> 19 payments cover 20 tasks at ₹200 each. Swastik did two tasks and was paid ₹400 in a single payment on 21 Sep, so 20 × ₹200 = ₹4,000.</div>
     <table class="t">
-      <tr><td>21 Sep</td><td>15 payments <span class="muted">(Swastik ₹400, 14 others ₹200)</span></td><td class="r num">₹3,200</td></tr>
+      <tr><td>21 Sep</td><td>15 payments, 16 tasks <span class="muted">(Swastik ₹400 for 2 tasks, 14 others ₹200)</span></td><td class="r num">₹3,200</td></tr>
       <tr><td>22 Sep</td><td>4 payments <span class="muted">(₹200 each)</span></td><td class="r num">₹800</td></tr>
-      <tfoot><tr><td colspan="2">Total · 19 payments</td><td class="r num">₹4,000</td></tr></tfoot>
+      <tfoot><tr><td colspan="2">Total · 19 payments, 20 tasks</td><td class="r num">₹4,000</td></tr></tfoot>
     </table>
   </div>
 
